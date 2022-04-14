@@ -8,7 +8,7 @@ public abstract class ThingsOnMars {
     protected int currentRow;
     protected int currentCol;
     protected Mars planet;
-    protected boolean isMovable;
+    protected boolean isMovable = false;
 
     public int getCurrentRow(){return currentRow;}
     public int getCurrentCol(){return currentCol;}

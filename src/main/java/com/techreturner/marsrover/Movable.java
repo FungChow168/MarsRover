@@ -14,6 +14,10 @@ public abstract class Movable extends ThingsOnMars{
     private final int TOTALDIRECTIONS = 3;
     private final int ONESTEP = 1;
 
+    public Movable(){
+        this.isMovable = true;
+    }
+
     public void setPosition(String position){
         String[] positionDirection = position.split(" ");
         currentCol = Integer.valueOf(positionDirection[0]);

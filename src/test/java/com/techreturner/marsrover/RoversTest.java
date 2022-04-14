@@ -2,9 +2,8 @@ package com.techreturner.marsrover;
 
 
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class RoversTest {
 
@@ -19,6 +18,11 @@ public class RoversTest {
         assertFalse(roverA.positionIsValidFormat("1 7 S"));
     }
 */
+    @Test
+    public void checkIsMovable(){
+        assertTrue(roverA.isMovable());
+    }
+
     @Test
     public void checkCurrentPostion(){
         roverA.setPosition("5 3 E");
