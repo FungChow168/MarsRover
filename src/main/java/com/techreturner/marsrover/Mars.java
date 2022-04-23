@@ -13,6 +13,7 @@ public class Mars {
     private int upperRightCornerRoW = 5;
     private ArrayList<ArrayList<String>> planetGrid = new ArrayList<ArrayList<String>>();
 
+
     private void promptUserInput() {}
 
     public int getMINCOLUMNNO(){return MINCOLUMNNO;};
@@ -20,6 +21,13 @@ public class Mars {
     public int getUpperRightCornerCol(){return upperRightCornerCol;}
     public int getUpperRightCornerRoW(){return upperRightCornerRoW;}
     public ArrayList<ArrayList<String>> getGrid(){return planetGrid;};
+
+//    public Mars(){}
+
+    public Mars(String gridSize){
+        this.setGrid(gridSize);
+    }
+
     public void setGrid(String grid){
         String[] gridArray = grid.split(" ");
         upperRightCornerRoW = Integer.valueOf(gridArray[0]);
@@ -32,7 +40,6 @@ public class Mars {
     }
 
     public String printGrid(){
-
 
         String gridLine = "+";
         for (int i=0; i<= upperRightCornerCol; i++)
@@ -47,15 +54,15 @@ public class Mars {
         }
         System.out.println(grid);
 
-        return "hello world"; //grid;
+        return grid;
     }
 
     public static void main(String[] args) {
-        Mars a = new Mars();
-        a.setGrid("55 35");
-        System.out.println("row size : " + a.getGrid().size());
-        System.out.println("col size : " + a.getGrid().get(1).size());
-        a.printGrid();
+//        Mars a = new Mars();
+//        a.setGrid("9 9");
+        Mars mars = new Mars("9 9");
+        System.out.println("row size : " + mars.getGrid().size());
+        System.out.println("col size : " + mars.getGrid().get(1).size());
+        mars.printGrid();
     }
-
 }

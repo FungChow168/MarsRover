@@ -6,11 +6,11 @@ import static org.junit.Assert.assertTrue;
 
 public class MarsTest {
 
-    private Mars planet = new Mars();
+    private Mars planet = new Mars("5 5");
 
     @Test
     public void checkMarsGridTest (){
-        planet.setGrid("5 5");
+//        planet.setGrid("5 5");
         assertEquals(6, planet.getGrid().size());
         assertEquals(6, planet.getGrid().get(0).size());
         assertEquals(6, planet.getGrid().get(1).size());

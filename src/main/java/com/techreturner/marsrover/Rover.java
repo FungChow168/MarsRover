@@ -11,7 +11,10 @@ public class Rover extends Movable{
 
     @Override
     public String moveOnMars(char action) {
-        this.action(action);
+        if (action == 'S')
+            this.action(moveRandomly());
+        else
+            this.action(action);
         return getPositionDirection();
     }
 

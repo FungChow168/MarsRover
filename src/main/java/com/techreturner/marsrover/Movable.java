@@ -71,6 +71,15 @@ public abstract class Movable extends ThingsOnMars{
         }
     }
 
+    public int getRandomInt(int min, int max) {
+        return (int) Math.floor(Math.random() * (max - min + 1) + min);
+    }
+
+    protected char moveRandomly(){
+        final char [] options= {'L','R','M','M'};
+        return options[getRandomInt(0, options.length)];
+    }
+
     public abstract String moveOnMars(char action);
     //after the move, this method has to return a Sting of its new location which is in this format "x y"
 }
