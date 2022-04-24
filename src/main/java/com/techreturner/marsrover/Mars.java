@@ -7,10 +7,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
-
 import static java.util.stream.Collectors.*;
 
-//import java.util.Arrays;
 
 public class Mars {
 
@@ -19,7 +17,7 @@ public class Mars {
     private int upperRightCornerRoW;
     private ArrayList<ArrayList<String>> planetGrid = new ArrayList<ArrayList<String>>();
     private boolean gameOver = false;
-    private final int RECESS = 2;
+    private final int RECESS = 1;
     private int nextId = 1;
 
 
@@ -59,11 +57,11 @@ public class Mars {
             findEvent();
 
             printGrid();
-//            try {
-//                TimeUnit.SECONDS.sleep(RECESS);
-//            }catch(Exception e){
-//                System.out.println(e);
-//            }
+            try {
+                TimeUnit.SECONDS.sleep(RECESS);
+            }catch(Exception e){
+                System.out.println(e);
+            }
         }
     }
 
@@ -100,6 +98,7 @@ public class Mars {
         everything.add(roverB);
         Martian friend = new Martian(this, "M");
         friend.setPosition(getRandomInt(0, upperRightCornerCol) + " " + getRandomInt(0, upperRightCornerRoW) + " S");
+        System.out.println("Martian position :" + friend.getPositionDirection());
         everything.add(friend);
         printGrid();
     }
@@ -142,7 +141,7 @@ public class Mars {
 
 
     public static void main(String[] args) {
-        Mars mars = new Mars("5 5");
+        Mars mars = new Mars("10 10");
         mars.playGame();
     }
 }
