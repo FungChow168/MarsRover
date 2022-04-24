@@ -24,27 +24,23 @@ public class Rover extends Movable{
 
     @Override
     public void eventListener(String event, ArrayList<ThingsOnMars> involved) {
-        boolean iAmInvolved = false;
-        for (ThingsOnMars thing: involved)
-            if (thing.getID() == ID) {
-                iAmInvolved = true;
-                break;
-            }
-        if (iAmInvolved)
-            if (event.equals("CLASH") )
-                for (ThingsOnMars theOtherParty: involved)
+            if (event.equals("CLASH") ) {
+                for (ThingsOnMars theOtherParty : involved)
                     if (theOtherParty.getID() != ID)
                         switch (theOtherParty.getType()) {
                             case "ROVER" -> {
-                                System.out.println("Rover " + name + " crashed. Mission Failure.");
-                                planet.endThisGame();
+                                System.out.println("Rover " + name + " crashed. Mission Failed.");
+                                name = "X";
                                 break;
                             }
                             case "ROCK" -> {
-                                System.out.println("Rover "+ name +" has found a rock. Mission Accomplished.");
-                                planet.endThisGame();
+                                System.out.println("Rover " + name + " has found a rock. Mission Accomplished.");
+                                name = "@";
                                 break;
                             }
                         }
+                planet.endThisGame();
+            }
+
     }
 }
