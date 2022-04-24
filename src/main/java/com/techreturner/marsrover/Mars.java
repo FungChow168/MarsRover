@@ -1,7 +1,5 @@
 package com.techreturner.marsrover;
 
-
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -58,7 +56,8 @@ public class Mars {
 
             printGrid();
             try {
-                TimeUnit.SECONDS.sleep(RECESS);
+//                uncomment the line below if you want to wait one second between two rounds
+//                TimeUnit.SECONDS.sleep(RECESS);
             }catch(Exception e){
                 System.out.println(e);
             }
@@ -141,7 +140,7 @@ public class Mars {
 
 
     public static void main(String[] args) {
-        Mars mars = new Mars("10 10");
+        Mars mars = new Mars("5 5");
         mars.playGame();
     }
 }
