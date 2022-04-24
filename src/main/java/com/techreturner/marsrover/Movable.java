@@ -47,6 +47,7 @@ public abstract class Movable extends ThingsOnMars{
     }
 
     protected void action(char action){
+        System.out.println(name + " action : " + action);
         switch (action) {
             case 'L' -> {heading -= ONESTEP;
                 if (heading <0 ) heading = TOTALDIRECTIONS;}
@@ -77,7 +78,7 @@ public abstract class Movable extends ThingsOnMars{
 
     protected char moveRandomly(){
         final char [] options= {'L','R','M','M'};
-        return options[getRandomInt(0, options.length)];
+        return options[getRandomInt(0, options.length-1)];
     }
 
     public abstract String moveOnMars(char action);

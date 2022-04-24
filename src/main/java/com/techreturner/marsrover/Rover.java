@@ -5,8 +5,12 @@ import java.util.Formatter;
 
 public class Rover extends Movable{
 
-    public Rover(Mars planet){
+
+    public Rover(Mars planet, String name, int id){
         this.planet = planet;
+        this.type = "ROVER";
+        this.name = name;
+        this.ID = id;
     }
 
     @Override
@@ -19,7 +23,29 @@ public class Rover extends Movable{
     }
 
     @Override
-    public void eventListener(String event, ArrayList<Integer> involved) {
-        System.out.println(new Formatter().format("Rover %s has noticed there is an event.", getID()));
+    public void eventListener(String event, ArrayList<ThingsOnMars> involved) {
+        boolean iAmInvolved = false;
+        System.out.println(new Formatter().format("Rover %s has noticed there is an event.", getName()));
+        for (ThingsOnMars thing: involved)
+            if (thing.getID() == ID) {
+                iAmInvolved = true;
+                break;
+            }
+        if (iAmInvolved)
+            if (event.equals("CLASH") )
+                for (ThingsOnMars theOtherParty: involved)
+                    if (theOtherParty.getID() != ID)
+                        switch (theOtherParty.getType()) {
+                            case "ROVER" -> {
+                                System.out.println("Rover crashed. Mission Failure.");
+                                planet.endThisGame();
+                                break;
+                            }
+                            case "ROCK" -> {
+                                System.out.println("Found a rock. Mission Accomplished.");
+                                planet.endThisGame();
+                                break;
+                            }
+                        }
     }
 }

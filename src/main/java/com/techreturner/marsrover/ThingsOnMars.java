@@ -9,10 +9,13 @@ public abstract class ThingsOnMars {
     protected int currentCol;
     protected Mars planet;
     protected boolean isMovable = false;
+    protected String name;
 
     public int getCurrentRow(){return currentRow;}
     public int getCurrentCol(){return currentCol;}
     public String getType(){return type;}
+    public String getName(){return name;};
+    public String getCoord(){return currentCol + " " + currentRow;};
     public int getID(){return ID;}
     public boolean isMovable (){return isMovable;}
     public void setPosition(String position){
@@ -21,6 +24,6 @@ public abstract class ThingsOnMars {
         currentRow = Integer.valueOf(positionDirection[1]);
     }
 
-    public abstract void eventListener(String event, ArrayList<Integer> involved);
+    public abstract void eventListener(String event, ArrayList<ThingsOnMars> involved);
 
 }

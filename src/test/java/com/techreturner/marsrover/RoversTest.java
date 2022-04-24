@@ -7,7 +7,7 @@ import static org.junit.Assert.assertTrue;
 
 public class RoversTest {
 
-    private Rover roverA = new Rover(new Mars("5 5"));
+    private Rover roverA = new Rover(new Mars("5 5"),"A", 1);
 
 /*
     @Ignore
@@ -84,7 +84,7 @@ public class RoversTest {
         roverA.moveOnMars('M');
         roverA.moveOnMars('M');
         assertEquals(5, roverA.getCurrentRow());
-        Rover roverB = new Rover(new Mars("5 5"));
+        Rover roverB = new Rover(new Mars("5 5"), "B", 2);
         roverB.setPosition("1 2 N");
         roverB.moveOnMars('L');
         roverB.moveOnMars('M');
@@ -96,7 +96,7 @@ public class RoversTest {
         roverB.moveOnMars('M');
         roverB.moveOnMars('M');
         assertEquals("1 3 N", roverB.getPositionDirection());
-        Rover roverC = new Rover(new Mars("5 5"));
+        Rover roverC = new Rover(new Mars("5 5"), "C", 3);
         roverC.setPosition("3 3 E");
         roverC.moveOnMars('M');
         roverC.moveOnMars('M');
