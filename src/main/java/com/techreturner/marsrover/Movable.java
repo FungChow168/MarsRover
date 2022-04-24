@@ -1,16 +1,11 @@
 package com.techreturner.marsrover;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-//import java.util.regex.*;
 import java.lang.IllegalArgumentException;
 
 public abstract class Movable extends ThingsOnMars{
 
     private int heading = 0;
-//    private ArrayList <Integer> directionIndex = new ArrayList<>(Arrays.asList(0,1,2,3));
-//    private ArrayList<String> directionValue = new ArrayList<>(Arrays.asList("N","E","S","W"));
-    private String[] directionArray = {"N","E","S","W"};
+    private final String[] DIRECTIONARRAY = {"N","E","S","W"};
     private final int TOTALDIRECTIONS = 3;
     private final int ONESTEP = 1;
 
@@ -26,16 +21,14 @@ public abstract class Movable extends ThingsOnMars{
     }
 
     private int convertDirectionToInt(String direction){
-//        return directionIndex.get(directionValue.indexOf(direction));
         int result = 0;
-        for (int i= 0; i < directionArray.length; i++)
-            if (directionArray[i].equalsIgnoreCase(direction)) result = i;
+        for (int i = 0; i < DIRECTIONARRAY.length; i++)
+            if (DIRECTIONARRAY[i].equalsIgnoreCase(direction)) result = i;
         return result;
     }
 
     private String convertIntToDirection(int index){
-//        return directionValue.get(directionIndex.indexOf(Integer.valueOf(index)));
-        return directionArray[index];
+        return DIRECTIONARRAY[index];
     }
 
     public String getPositionDirection(){

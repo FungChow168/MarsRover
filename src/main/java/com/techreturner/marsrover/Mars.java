@@ -23,12 +23,11 @@ public class Mars {
     private int nextId = 1;
 
 
-    private void promptUserInput() {}
-
     public int getUpperRightCornerCol(){return upperRightCornerCol;}
     public int getUpperRightCornerRoW(){return upperRightCornerRoW;}
     public ArrayList<ArrayList<String>> getGrid(){return planetGrid;}
     public ArrayList<ThingsOnMars> everything = new ArrayList<>();
+    public boolean isGameOver(){return gameOver;};
 
     public Mars(String gridSize){
         this.setGrid(gridSize);
@@ -99,6 +98,9 @@ public class Mars {
         roverB.setPosition(getRandomInt(0, upperRightCornerCol) + " " + getRandomInt(0, upperRightCornerRoW) + " N");
         System.out.println("Rover B position :" + roverB.getPositionDirection());
         everything.add(roverB);
+        Martian friend = new Martian(this, "M");
+        friend.setPosition(getRandomInt(0, upperRightCornerCol) + " " + getRandomInt(0, upperRightCornerRoW) + " S");
+        everything.add(friend);
         printGrid();
     }
 

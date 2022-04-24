@@ -21,9 +21,4 @@ public class MarsTest {
     }
 
 
-    public void printGrid(){
-//        planet.printGrid();
-    }
-
-
 }

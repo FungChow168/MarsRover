@@ -20,6 +20,17 @@ public class Rock extends ThingsOnMars{
 
     @Override
     public void eventListener(String event, ArrayList<ThingsOnMars> involved) {
-
+        if (!planet.isGameOver())
+            if (event.equals("CLASH") ) {
+                for (ThingsOnMars theOtherParty : involved)
+                    if (theOtherParty.getID() != ID)
+                        switch (theOtherParty.getType()) {
+                            case "MARTIAN" -> {
+                                setPosition(planet.getRandomInt(0, planet.getUpperRightCornerCol()) + " " + planet.getRandomInt(0, planet.getUpperRightCornerRoW()) );
+                                break;
+                            }
+                            default -> {}
+                        }
+            }
     }
 }

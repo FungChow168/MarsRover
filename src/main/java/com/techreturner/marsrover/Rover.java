@@ -31,16 +31,21 @@ public class Rover extends Movable{
                             case "ROVER" -> {
                                 System.out.println("Rover " + name + " crashed. Mission Failed.");
                                 name = "X";
+                                planet.endThisGame();
                                 break;
                             }
                             case "ROCK" -> {
                                 System.out.println("Rover " + name + " has found a rock. Mission Accomplished.");
                                 name = "@";
+                                planet.endThisGame();
                                 break;
                             }
+                            case "MARTIAN" -> {
+                                System.out.println("Martian, watch out !!!!!");
+                                break;
+                            }
+                            default -> {}
                         }
-                planet.endThisGame();
             }
-
     }
 }

@@ -7,6 +7,7 @@ public class Martian extends Movable{
     public Martian(Mars planet, String name){
         this.name = name;
         this.planet = planet;
+        this.type = "MARTIAN";
     }
 
     @Override
@@ -26,7 +27,27 @@ public class Martian extends Movable{
 
     @Override
     public void eventListener(String event, ArrayList<ThingsOnMars> involved) {
-        System.out.println("Martian has heard an event.");
+        String message;
+        if (!planet.isGameOver())
+            if (event.equals("CLASH") ) {
+                for (ThingsOnMars theOtherParty : involved)
+                    if (theOtherParty.getID() != ID)
+                        switch (theOtherParty.getType()) {
+                            case "ROVER" -> {
+                                message = "Martian dodged the rover " + theOtherParty.getName() + ".  Move from \" " + currentCol + " " + currentRow +
+                                        "\" to \"" ;
+                                moveOnMars('M');
+                                message +=  currentCol + " " + currentRow + "\"";
+                                System.out.println(message);
+                                break;
+                            }
+                            case "ROCK" -> {
+                                System.out.println("Martian kick away a rock. ");
+                                break;
+                            }
+                            default -> {}
+                        }
+            }
     }
 
     public static void main(String[] args) {
@@ -34,24 +55,6 @@ public class Martian extends Movable{
 //       testing move randomly
         Martian x = new Martian(a, "M");
         x.setPosition("1 1 N");
-        System.out.println(x.getPositionDirection());
-        x.moveOnMars('a');
-        System.out.println(x.getPositionDirection());
-        x.moveOnMars('a');
-        System.out.println(x.getPositionDirection());
-        x.moveOnMars('a');
-        System.out.println(x.getPositionDirection());
-        x.moveOnMars('a');
-        System.out.println(x.getPositionDirection());
-        x.moveOnMars('a');
-        System.out.println(x.getPositionDirection());
-        x.moveOnMars('a');
-        System.out.println(x.getPositionDirection());
-        x.moveOnMars('a');
-        System.out.println(x.getPositionDirection());
-        x.moveOnMars('a');
-        System.out.println(x.getPositionDirection());
-        x.moveOnMars('a');
         System.out.println(x.getPositionDirection());
         x.moveOnMars('a');
         System.out.println(x.getPositionDirection());
