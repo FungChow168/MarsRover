@@ -25,7 +25,6 @@ public class Rover extends Movable{
     @Override
     public void eventListener(String event, ArrayList<ThingsOnMars> involved) {
         boolean iAmInvolved = false;
-        System.out.println(new Formatter().format("Rover %s has noticed there is an event.", getName()));
         for (ThingsOnMars thing: involved)
             if (thing.getID() == ID) {
                 iAmInvolved = true;
@@ -37,12 +36,12 @@ public class Rover extends Movable{
                     if (theOtherParty.getID() != ID)
                         switch (theOtherParty.getType()) {
                             case "ROVER" -> {
-                                System.out.println("Rover crashed. Mission Failure.");
+                                System.out.println("Rover " + name + " crashed. Mission Failure.");
                                 planet.endThisGame();
                                 break;
                             }
                             case "ROCK" -> {
-                                System.out.println("Found a rock. Mission Accomplished.");
+                                System.out.println("Rover "+ name +" has found a rock. Mission Accomplished.");
                                 planet.endThisGame();
                                 break;
                             }

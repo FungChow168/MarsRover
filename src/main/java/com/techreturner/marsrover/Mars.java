@@ -48,7 +48,9 @@ public class Mars {
     public void playGame(){
         createObjectsOnMars();
         Movable movable;
+        int roundNo = 1;
         while (!gameOver) {
+            System.out.println("Round : " + roundNo++);
             for (ThingsOnMars obj : everything) {
                 if (obj.isMovable) {
                     movable = (Movable) obj;
@@ -69,7 +71,6 @@ public class Mars {
     private void findEvent(){
         ArrayList<String> a = new ArrayList<>();
         Map<String, List<ThingsOnMars>> map = everything.stream().collect(groupingBy(ThingsOnMars::getCoord));
-        System.out.println("map size : " + map.size());
         if (map.size() < everything.size())
             for (Map.Entry<String, List<ThingsOnMars>> entry: map.entrySet())
                 if (entry.getValue().size() > 1)
